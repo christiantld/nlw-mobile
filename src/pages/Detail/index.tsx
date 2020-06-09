@@ -14,6 +14,8 @@ import {
   Footer,
   Button,
   ButtonText,
+  Site,
+  SiteTitle,
 } from "./styles";
 
 import api from "../../services/api";
@@ -28,6 +30,7 @@ interface Point {
     name: string;
     email: string;
     whatsapp: string;
+    site: string;
     city: string;
     uf: string;
   };
@@ -66,6 +69,11 @@ const Detail: React.FC = () => {
     );
   }
 
+  function handleNavigateToSite(site: string) {
+    if (site === "") return;
+    navigation.navigate("Site", { site });
+  }
+
   if (!point.point) {
     // TODO criar componente de loading
     return null;
@@ -92,6 +100,18 @@ const Detail: React.FC = () => {
             {point.point.city}, {point.point.uf}
           </AddressContent>
         </Address>
+        {point.point.site !== "" && (
+          <Site>
+            <SiteTitle onPress={() => handleNavigateToSite(point.point.site)}>
+              Site
+            </SiteTitle>
+            <Icon
+              name="external-link"
+              size={20}
+              onPress={() => handleNavigateToSite(point.point.site)}
+            />
+          </Site>
+        )}
       </Container>
       <Footer>
         <Button onPress={handleComposeMail} activeOpacity={0.7}>

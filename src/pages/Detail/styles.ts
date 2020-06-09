@@ -68,3 +68,21 @@ export const ButtonText = styled.Text`
   font-size: 16px;
   font-family: "Roboto_400Regular";
 `;
+
+export const Site = styled.View`
+  margin-top: 32px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90px;
+
+  svg {
+    padding-left: 8px;
+  }
+`;
+
+export const SiteTitle = styled.Text`
+  color: #000045;
+  font-size: 20px;
+  font-family: "Roboto_400Regular";
+`;
